@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <h1 class="my-4 text-center text-lg-left">Mokebe shop</h1>
+
+        <div class="container-fluid">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Kod producenta</th>
+                    <th scope="col">Nazwa</th>
+                    <th scope="col">Cena netto</th>
+                    <th scope="col">Cena + VAT</th>
+                    <th scope="col">Stan</th>
+                    <th scope="col">Stawka VAT</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for shop_item in shop_items %}
+                    <tr>
+                        <th scope="row">{{ shop_item.id }}</th>
+                        <td>{{ shop_item.producer_code }}</td>
+                        <td>{{ shop_item.name }}</td>
+                        <td>{{ shop_item.price_net }}</td>
+                        <td>{{ shop_item.price_plus_vat }}</td>
+                        <td>{{ shop_item.quantity }}</td>
+                        <td>{{ shop_item.vat_value }}</td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- /.container -->
+{% endblock %}
